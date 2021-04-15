@@ -51,8 +51,6 @@ ConfigPage {
 		id: config
 	}
 
-	XdgPathsLoader { id: xdgPathsLoader }
-
 	ConfigSection {
 		label: i18n("Popup")
 
@@ -123,7 +121,7 @@ ConfigPage {
 		}
 		RadioButton {
 			visible: false
-			text: i18n("Desktop Theme (%1)", theme.themeName)
+			text: i18n("Plasma Style (%1)", theme.themeName)
 			exclusiveGroup: tilesThemeGroup
 			checked: false
 			enabled: false
@@ -197,7 +195,7 @@ ConfigPage {
 		}
 
 		RadioButton {
-			text: i18n("Desktop Theme (%1)", theme.themeName)
+			text: i18n("Plasma Style (%1)", theme.themeName)
 			exclusiveGroup: sidebarThemeGroup
 			checked: plasmoid.configuration.sidebarFollowsTheme
 			onClicked: plasmoid.configuration.sidebarFollowsTheme = true
@@ -268,28 +266,28 @@ ConfigPage {
 
 				ConfigIconButton {
 					iconName: "folder-documents-symbolic"
-					text: xdgPathsLoader.displayName('DOCUMENTS')
+					text: i18nd("xdg-user-dirs", "Documents")
 					onClicked: sidebarShortcuts.addUrl('xdg:DOCUMENTS')
 				}
 				ConfigIconButton {
 					iconName: "folder-download-symbolic"
 					// Component.onCompleted: contentItem.alignment = Qt.AlignLeft
-					text: xdgPathsLoader.displayName('DOWNLOAD')
+					text: i18nd("xdg-user-dirs", "Download")
 					onClicked: sidebarShortcuts.addUrl('xdg:DOWNLOAD')
 				}
 				ConfigIconButton {
 					iconName: "folder-music-symbolic"
-					text: xdgPathsLoader.displayName('MUSIC')
+					text: i18nd("xdg-user-dirs", "Music")
 					onClicked: sidebarShortcuts.addUrl('xdg:MUSIC')
 				}
 				ConfigIconButton {
 					iconName: "folder-pictures-symbolic"
-					text: xdgPathsLoader.displayName('PICTURES')
+					text: i18nd("xdg-user-dirs", "Pictures")
 					onClicked: sidebarShortcuts.addUrl('xdg:PICTURES')
 				}
 				ConfigIconButton {
 					iconName: "folder-videos-symbolic"
-					text: xdgPathsLoader.displayName('VIDEOS') // Uhg, it's displayed 'Movies' instead of 'Videos'...
+					text: i18nd("xdg-user-dirs", "Videos")
 					onClicked: sidebarShortcuts.addUrl('xdg:VIDEOS')
 				}
 				ConfigIconButton {
@@ -325,7 +323,7 @@ ConfigPage {
 		}
 		
 		RadioButton {
-			text: i18n("Desktop Theme (%1)", theme.themeName)
+			text: i18n("Plasma Style (%1)", theme.themeName)
 			exclusiveGroup: searchBoxThemeGroup
 			checked: plasmoid.configuration.searchFieldFollowsTheme
 			onClicked: plasmoid.configuration.searchFieldFollowsTheme = true
